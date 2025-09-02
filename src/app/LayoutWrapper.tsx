@@ -5,7 +5,17 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 // Daftar rute yang tidak memerlukan Navbar dan Footer
-const authRoutes = ['/login', '/register', '/forgot-password'];
+const noNavbarFooterRoutes = [
+  '/login', 
+  '/register', 
+  '/forgot-password',
+  '/chat',
+  '/cart',
+  '/checkout',
+  '/payment',
+  '/checkouttracking',
+  '/checkoutselesai'
+];
 
 export default function LayoutWrapper({
   children,
@@ -14,16 +24,18 @@ export default function LayoutWrapper({
 }) {
   const pathname = usePathname();
   
-  // Cek apakah halaman saat ini adalah halaman auth
-  const isAuthPage = authRoutes.includes(pathname);
+  // Cek apakah halaman saat ini adalah halaman yang tidak memerlukan Navbar dan Footer
+  const shouldHideNavbarFooter = noNavbarFooterRoutes.some(route => 
+    pathname.startsWith(route)
+  );
 
   return (
     <>
-      {!isAuthPage && <Navbar />}
-      <main className={isAuthPage ? "" : "min-h-screen"}>
+      {!shouldHideNavbarFooter && <Navbar />}
+      <main className={shouldHideNavbarFooter ? "" : "min-h-screen"}>
         {children}
       </main>
-      {!isAuthPage && <Footer />}
+      {!shouldHideNavbarFooter && <Footer />}
     </>
   );
 }
