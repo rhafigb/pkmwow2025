@@ -4,12 +4,16 @@
   --primary: #16a34a;
   --primary-dark: #15803d;
   --primary-light: #dcfce7;
+  --dark: #1f2937;
+  --dark-light: #374151;
 }
 
 @theme inline {
   --color-primary: var(--primary);
   --color-primary-dark: var(--primary-dark);
   --color-primary-light: var(--primary-light);
+  --color-dark: var(--dark);
+  --color-dark-light: var(--dark-light);
   --font-sans: var(--font-montserrat);
 }
 
