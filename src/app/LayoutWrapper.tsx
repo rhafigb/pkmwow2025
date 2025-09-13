@@ -16,6 +16,8 @@ const noNavbarFooterRoutes = [
   '/checkouttracking',
   '/profile',
   '/admin',
+  '/tambahproduk',
+  '/detailpesanan',
   '/checkoutselesai'
 ];
 
